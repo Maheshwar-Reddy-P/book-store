@@ -1,0 +1,86 @@
+<div class="book-container">
+    <p-card>
+        <ng-template pTemplate="header">
+            <h2 class="form-heading">Add Book</h2>
+        </ng-template>
+        <form [formGroup]="addBookForm" (ngSubmit)="onSubmit()">
+            <div class="form-grid">
+                <div class="p-field">
+                    <label for="title">Title<span class="error">*</span></label>
+                    <input id="title" type="text" pInputText formControlName="title" required />
+                    <p *ngIf="addBookForm.get('title')?.invalid && addBookForm.get('title')?.touched" class="error">This Field is Required</p>
+                </div>
+                <div class="p-field">
+                    <label for="author">Author<span class="error">*</span></label>
+                    <input id="author" type="text" pInputText formControlName="author" required />
+                    <p *ngIf="addBookForm.get('author')?.invalid && addBookForm.get('author')?.touched" class="error">This Field is Required</p>
+                </div>
+                <div class="p-field">
+                    <label for="language">Language<span class="error">*</span></label>
+                    <input id="language" type="text" pInputText formControlName="language" required />
+                    <p *ngIf="addBookForm.get('language')?.invalid && addBookForm.get('language')?.touched" class="error">This Field is Required</p>
+                </div>
+                <div class="p-field">
+                    <label for="country">Country<span class="error">*</span></label>
+                    <p-dropdown 
+                        id="country" 
+                        [options]="countryOptions" 
+                        formControlName="country" 
+                        placeholder="Select a Country" 
+                        [style]="{'width':'245px'}"
+                        [required]="true">
+                    </p-dropdown>
+                    <p *ngIf="addBookForm.get('country')?.invalid && addBookForm.get('country')?.touched" class="error">This Field is Required</p>
+                </div>
+                <div class="p-field">
+                    <label for="link">Link<span class="error">*</span></label>
+                    <input id="link" type="text" pInputText formControlName="link" required />
+                    <p *ngIf="addBookForm.get('link')?.invalid && addBookForm.get('link')?.touched" class="error">This Field is Required</p>
+                </div>
+                <div class="p-field">
+                    <label for="pages">Pages<span class="error">*</span></label>
+                    <input id="pages" type="text" pInputText formControlName="pages" required />
+                    <p *ngIf="addBookForm.get('pages')?.invalid && addBookForm.get('pages')?.touched" class="error">This Field is Required</p>
+                </div>
+                <div class="p-field">
+                    <label for="year">Year<span class="error">*</span></label>
+                    <input id="year" type="text" pInputText formControlName="year" required />
+                    <p *ngIf="addBookForm.get('year')?.invalid && addBookForm.get('year')?.touched" class="error">This Field is Required</p>
+                </div>
+                <div class="p-field">
+                    <label for="price">Price<span class="error">*</span></label>
+                    <input id="price" type="text" pInputText formControlName="price" required />
+                    <p *ngIf="addBookForm.get('price')?.invalid && addBookForm.get('price')?.touched && addBookForm.get('price')?.errors?.['required']" class="error">This Field is Required</p>
+                    <p *ngIf="addBookForm.get('price')?.invalid && addBookForm.get('price')?.touched && addBookForm.get('price')?.errors?.['pattern']" class="error">Enter a valid number</p>
+                </div>
+                <div class="p-field">
+                    <label for="imageLink">Upload Image<span class="error">*</span></label>
+                    <p-fileUpload 
+                        id="imageLink" 
+                        name="imageLink" 
+                        formControlName="imageLink" 
+                        mode="basic" 
+                        [auto]="true" 
+                        chooseLabel="Browse" 
+                        (onUpload)="onImageUpload($event)">
+                    </p-fileUpload>
+                    <p *ngIf="addBookForm.get('imageLink')?.invalid && addBookForm.get('imageLink')?.touched" class="error">This Field is Required</p>
+                </div>
+                <div class="p-field full-width">
+                    <label for="description">Description<span class="error">*</span></label>
+                    <textarea 
+                        id="description" 
+                        pInputTextarea 
+                        rows="5" 
+                        formControlName="description" 
+                        required>
+                    </textarea>
+                    <p *ngIf="addBookForm.get('description')?.invalid && addBookForm.get('description')?.touched" class="error">This Field is Required</p>
+                </div>
+            </div>
+            <div class="button-container">
+                <button pButton type="submit" label="Add"></button>
+            </div>
+        </form>
+    </p-card>
+</div>

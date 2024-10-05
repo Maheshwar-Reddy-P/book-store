@@ -1,0 +1,54 @@
+<div class="cart-container">
+  <h2 class="main-heading">Your Shopping Bag</h2>
+  <p-table [value]="cartBooks">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Book Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-item let-i="rowIndex">
+      <tr>
+        <td>{{ item.bookName }}</td>
+        <td>{{ item.price | currency:'INR' }}</td>
+        <td>
+          <input 
+            type="number" 
+            [(ngModel)]="item.quantity" 
+            (ngModelChange)="updateTotalPrice(item.quantity, item.bookId)"
+            min="1" 
+            style="width: 60px;" 
+          />
+        </td>
+        <td>{{ item.price * item.quantity | currency:'INR' }}</td>
+        <td>
+          <button 
+            pButton 
+            label="Remove" 
+            (click)="removeItem(item.bookId)" 
+            style="background-color: rgb(241, 163, 60); border: none; color: white;">
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <div class="total-price" *ngIf="!isCartEmpty; else cartEmpty">
+    <h3>Total Price: {{ totalPrice | currency:'INR' }}</h3>
+    <button 
+      pButton 
+      label="Place Order" 
+      (click)="placeOrder()" 
+      style="background-color: green; color: white;">
+    </button>
+  </div>
+
+  <ng-template #cartEmpty>
+    <div class="empty-cart-msg">
+      Cart is Empty
+    </div>
+  </ng-template>
+</div>

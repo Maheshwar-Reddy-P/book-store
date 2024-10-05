@@ -1,0 +1,31 @@
+.custom-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.5em;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #ddd;
+}
+
+.custom-footer {
+    font-weight: bold;
+    text-align: right;
+    padding: 0.5em;
+    border-top: 1px solid #ddd;
+}
+  
+.status{
+    color: rgb(3, 167, 3);
+}
+
+.container {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.card {
+    margin: 10px;
+}
+
+.main-heading {
+    text-align: center;
+}

@@ -1,0 +1,60 @@
+<!-- <img src="https://www.shutterstock.com/image-vector/concept-new-team-member-welcome-260nw-1327428803.jpg" class="image"/>
+<div>
+    <div class="conatiner">
+        <div *ngFor="let book of books" class="p-col-12 p-md-6 p-lg-4 card">
+          <p-card header="{{ book.title }}" subheader="{{ book.author }}">
+            <img src="https://raw.githubusercontent.com/benoitvallon/100-best-books/master/static/images/a-Dolls-house.jpg" alt="{{ book.title }}" style="width: 100%; height: auto;" />
+            <div class="p-card-content">
+              <p><strong>Country:</strong> {{ book.country }}</p>
+              <p><strong>Language:</strong> {{ book.language }}</p>
+              <p><strong>Pages:</strong> {{ book.page }}</p>
+              <p><strong>Year:</strong> {{ book.year }}</p>
+              <p><strong>Created At:</strong> {{ book.createdAt | date }}</p>
+              <p><strong>Updated At:</strong> {{ book.updatedAt | date }}</p>
+            </div>
+            <div class="p-card-footer">
+              <a [href]="book.link" target="_blank">
+                <button pButton type="button" label="Read More"></button>
+              </a>
+            </div>
+          </p-card>
+        </div>
+      </div>
+      
+</div> -->
+
+
+<!-- src/app/book-store/book-store.component.html -->
+<div class="conatiner">
+  <h2 class="main-heading">Welcome to the Book Store</h2>
+  <span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input type="text" pInputText [(ngModel)]="searchVal" (ngModelChange)="applySearchFilters()" placeholder="Search by Title / Author">         
+  </span>
+</div>
+<div class="books-container">
+  <div *ngIf="books.length === 0; else booksList" class="no-books-found">
+    <p>No Books Found</p>
+  </div>
+ 
+  
+  <ng-template #booksList>
+    <div class="book-card" *ngFor="let book of books" routerLink="/book/{{book._id}}">
+      <div class="book-image">
+        <img src="assets/{{book.imageLink}}" [alt]="book.title" class="image">
+      </div>
+      <div class="book-details">
+        <h3>{{ book.title }}</h3>
+        <p>By: {{ book.author }}</p>
+        <p>Published: {{ book.year }}, {{ book.pages }} pages</p>
+        <p>Country: {{ book.country }}</p>
+        <p>Language: {{ book.language }}</p>
+        <!-- <a routerLink="/book/{{book._id}}">Read More</a> -->
+        <!-- <div>
+          <button pButton pRipple type="button" label="Add to Bag" class="p-button-primary p-button-sm"></button>
+        </div> -->
+      </div>
+    </div>
+  </ng-template>
+  
+</div>

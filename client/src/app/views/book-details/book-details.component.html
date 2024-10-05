@@ -1,0 +1,17 @@
+<div *ngIf="bookDetails" class="book-details">
+    <img src="assets/{{bookDetails.imageLink}}" alt="{{ bookDetails.title }} cover" class="book-cover">
+    <div>
+        <h1>{{ bookDetails.title }}</h1>
+        <h2>{{ bookDetails.author }}</h2>
+        <p><strong>Country:</strong> {{ bookDetails.country }}</p>
+        <p><strong>Language:</strong> {{ bookDetails.language }}</p>
+        <p><strong>Pages:</strong> {{ bookDetails.pages }}</p>
+        <p><strong>Year:</strong> {{ bookDetails.year }}</p>
+        <p><strong>Description:</strong> {{ bookDetails.description }}</p>
+        <p class="price"> {{ bookDetails.price | currency:"INR"}}</p>
+        <!-- <p><a [href]="bookDetails.link" target="_blank">More info</a></p> -->
+        <button *ngIf="!bookExistsInCart" (click)="addToBag(bookDetails._id)" class="btn btn-primary">Add to Bag</button>
+        <button *ngIf="bookExistsInCart" routerLink="/bag" class="btn btn-primary">Go to Bag</button>
+        <button (click)="buyNow(bookDetails._id)" class="btn btn-success">Buy Now</button>
+    </div>
+</div>

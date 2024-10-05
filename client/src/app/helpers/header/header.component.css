@@ -1,0 +1,43 @@
+/* Custom styles for PrimeNG Menubar */
+ :host ::ng-deep .p-menubar {
+    background-color: #14526e;
+    border: none;
+    height: 50px;
+    color: #ffffff;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link {
+    /* background-color: #ffffff !important; */
+    color: white !important; /* Text color for menu items */
+
+}
+
+:host ::ng-deep.p-menuitem-text{
+    color: white !important;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+:host ::ng-deep.p-menuitem-icon{
+    color: white !important;
+    font-size: 18px;
+    font-weight: 500;
+}
+/* app.component.css */
+
+
+
+/* Hover effect for menu items */
+:host ::ng-deep.p-menuitem-link:hover .p-menuitem-text{
+    background-color: #eeeae6 !important; /* Background color on hover */
+    color: #14526e !important; /* Text color on hover */
+}
+
+/* Style for active menu items */
+:host ::ng-deep.p-menuitem-link-active {
+    background-color: #eeeae6 !important; /* Background color for active menu item */
+    border-radius: 20px;
+}
+:host ::ng-deep.p-menuitem-link-active .p-menuitem-text {
+    color: #14526e !important; /* Text color for active menu item */
+}

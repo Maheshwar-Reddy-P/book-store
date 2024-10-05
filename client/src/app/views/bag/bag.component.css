@@ -1,0 +1,22 @@
+.cart-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.total-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.main-heading {
+  text-align: center;
+}
+
+.empty-cart-msg {
+  text-align: center;
+  margin: 20px;
+  font-size: 18px;
+  font-weight: lighter;
+}

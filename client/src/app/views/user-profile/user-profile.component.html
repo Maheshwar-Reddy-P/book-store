@@ -1,0 +1,14 @@
+<div class="user-profile">
+    <div class="user-info" (click)="toggleDropdown()">
+      <span>{{ user.username }}</span>
+    </div>
+  
+    <div class="user-dropdown" *ngIf="isDropdownVisible">
+      <div class="user-details">
+        <p>{{ user.firstName }} {{user.lastName}}</p>
+        <p>{{ user.email }}</p>
+      </div>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+  

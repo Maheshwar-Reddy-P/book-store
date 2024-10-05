@@ -1,0 +1,59 @@
+<div class="login-container">
+    <p-card>
+      <ng-template pTemplate="header">
+        <h2>Register</h2>
+      </ng-template>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="firstname">Firstname<span class="error">*</span></label>
+                <input id="firstname" type="text" pInputText formControlName="firstName" required />
+                <p *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched" class="error">This Field is Required</p>
+            </div>
+            <div class="p-field">
+                <label for="lastname">Lastname<span class="error">*</span></label>
+                <input id="lastname" type="text" pInputText formControlName="lastName" required />
+                <p *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched" class="error">This Field is Required</p>
+            </div>
+            <div class="p-field">
+                <label for="username">Username<span class="error">*</span></label>
+                <input id="username" type="text" pInputText formControlName="username" required />
+                <p *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched" class="error">This Field is Required</p>
+            </div>
+          <div class="p-field">
+            <label for="email">Email Address<span class="error">*</span></label>
+            <input id="email" type="text" pInputText formControlName="email" required />
+            <p *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['required']" class="error">This Field is Required</p>
+            <p *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']" class="error">Please enter valid email address</p>
+          </div>
+          <div class="p-field">
+            <label for="password">Password<span class="error">*</span></label>
+            <p-password [feedback]="false" [toggleMask]="true" formControlName="password"></p-password>
+            <!-- <p *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched" class="error">This Field is Required</p> -->
+            <div *ngIf="password?.errors && (password?.dirty || password?.touched)">
+              <p *ngIf="password?.errors?.['required']" class="error">This Field is required.</p>
+              <p *ngIf="password?.errors?.['minlength']" class="error">Password must be at least 8 characters long.</p>
+              <p *ngIf="password?.errors?.['pattern']" class="error">Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</p>
+            </div>
+          </div>
+          <div class="p-field">
+            <label for="confirm-password">Confirm Password<span class="error">*</span></label>
+            <p-password [feedback]="false" [toggleMask]="true" formControlName="confirmPassword"></p-password>
+            <div *ngIf="registerForm.get('confirmPassword')?.errors && (registerForm.get('confirmPassword')?.dirty || registerForm.get('confirmPassword')?.touched)">
+              <p *ngIf="registerForm.get('confirmPassword')?.errors?.['required']" class="error">This Field is required.</p>
+              <p *ngIf="registerForm.get('confirmPassword')?.errors?.['confirmPasswordValidator']" class="error">Password didn't matched.</p>
+            </div>
+            <!-- <p *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="error">This Field is Required</p>
+            <p *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched" class="error">This Field is Required</p> -->
+          </div>
+          <div class="p-field">
+            <button pButton type="submit" label="Register"></button>
+          </div>
+          <div class="p-field">
+            <p>Already have an account? <a routerLink="/login">Login</a></p>
+          </div>
+        </div>
+      </form>
+    </p-card>
+  </div>
+  

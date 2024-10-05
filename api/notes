@@ -1,0 +1,7 @@
+This File is used to note some important points.
+
+-> Node js runs javascript in server.
+-> Expressjs is used in backend.
+-> nodemon(package): Used to run the application automatically when we save our changes.
+-> To encrypt password we used bcryptjs.
+-> mongoose: To do the ORM Models in express.

@@ -1,0 +1,22 @@
+<div class="container">
+  <h2 class="main-heading">Previous Orders</h2>
+  <p-card class="card" *ngFor="let order of orders">
+      <ng-template pTemplate="header">
+        <div class="custom-header">
+          Order ID: {{ order._id }} | Status: <span class="status">{{ order.status }}</span>
+        </div>
+      </ng-template>
+    
+      <ul>
+        <li *ngFor="let item of order.items">
+          {{ item.bookName }} - Quantity: {{ item.quantity }} - Price: {{ item.price | currency:'INR' }}
+        </li>
+      </ul>
+    
+      <ng-template pTemplate="footer">
+        <div class="custom-footer">
+          Total: {{ order.orderTotal | currency:'INR' }}
+        </div>
+      </ng-template>
+  </p-card>
+</div>

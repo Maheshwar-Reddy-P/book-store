@@ -1,0 +1,11 @@
+<p-menubar class="menubar">
+    <ng-template pTemplate="start">
+        <img src="https://pngimg.com/uploads/book/book_PNG2114.png" height="40" width="60" class="mr-2">
+    </ng-template>
+    <ng-template pTemplate="end">
+        <!-- <input type="text" pInputText placeholder="Search"> -->
+        <p-menubar [model]="items" styleClass="p-menubar-end"></p-menubar>
+    </ng-template>
+</p-menubar>
+
+<app-user-profile></app-user-profile>
